@@ -40,7 +40,7 @@ header-img: "img/home-bg-rwd.jpg"
 <!--     <blockquote><p>Yet another iOS Developer. <br>
     Yet another Life-long Student.</p></blockquote> -->
 
-    <p>Hi, I am <strong>XiaoZhui Wang</strong>. I am an Android software engineer and currently working in Shenzhen</p>
+    <p>Hi, I am <strong>XiaoZhui Wang</strong>. I am an Android software engineer and currently working in Shenzhen.</p>
 
  <!--    <p>This is my personal blog, through making Github Pages and Jekyll.My GitHub  👉 <a href="http://github.com/qiubaiying">Github·BY</a>.</p>
     
@@ -132,7 +132,7 @@ header-img: "img/home-bg-rwd.jpg"
     })();
 </script>
 <!-- 多说公共JS代码 end -->
-{% endif %}
+    {% endif %}
 
 
 {% if site.disqus_username %}
@@ -158,4 +158,11 @@ header-img: "img/home-bg-rwd.jpg"
     })();
 </script>
 <!-- disqus 公共JS代码 end -->
+{% endif %}
+
+{% if site.uyan_username %}
+    <!-- 友言评论框 BEGIN -->
+    <div id="uyan_frame"></div>
+    <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2151341"></script>
+    <!-- 友言评论框END -->
 {% endif %}

@@ -65,7 +65,7 @@ input: GFM                            # use Github Flavored Markdown !important
 # duoshuo_share: true                     # set to false if you want to use Comment without Sharing
 
 #UYan评论
-uyan_username：2151341  #可以不配置
+uyan_username: 2151341  #可以不配置
 
 
 # Analytics settings
