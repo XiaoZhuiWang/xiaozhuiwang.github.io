@@ -64,7 +64,7 @@ freeline {
 直接点击 `Run Freeline`的按钮，就可以享受Freeline带来的开发效率的提升啦（当然，你可能会先需要一个较为耗时的全量编译过程）。在Freeline工具栏和Build选项里的Freeline还可以以`-d` 或`-f`方式执行编译。
 插件也会提示你Freeline最新的版本是多少，你也可以通过插件来对Freeline进行更新。
 
-#####方法二：直接在命令行执行python脚本来编译
+##### 方法二：直接在命令行执行python脚本来编译
 * python freeline.py        正常模式编译
 * python freeline.py -d        调试模式编译
 * python freeline.py -f        全量编译，就是整个工程重新编译

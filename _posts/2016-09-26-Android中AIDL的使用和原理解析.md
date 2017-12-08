@@ -11,17 +11,18 @@ tags:
 ---
 
 写这篇文章之前，首先要感谢一下任玉刚大哥写了《Android开发艺术探索》这本书。这篇文章其实就是对书中讲解AIDL的那个小节的一个简单的总结。
-####**Android进程间通信方式**
+
+#### Android进程间通信方式
 Android实现进程间通信的方式有很多种，比如通过Intent来传递数据，共享文件，SharedPreferences，基于Binder的Messager和AIDL，以及socket等。Binder是Android中最有特色的进程间通信方式。
 
-####**Binder**
+#### Binder
 Binder主要用于进程间通信，是Android中的一个类，实现了IBinder接口。从Android应用层来说，Binder是服务端与客户端通信的媒介，当bindService一个服务的时候，服务端会返回一个包含了服务端业务调用的Binder对象，通过这个对象客户端就可以获取服务端数据或向服务端传递数据，这里的服务包括普通服务和包含了AIDL的服务。
 
 在Android开发中，Binder主要用在Service中，包括AIDL、Messager。普通Service中的Binder不涉及到进程间通信，所以较为简单。Messager底层其实就是AIDL，这里选择AIDL来学习Binder的工作机制。
 
-####**AIDL在Service中的使用方法**
+#### AIDL在Service中的使用方法
 
-#####**服务端**
+##### 服务端
 * 定义AIDL接口，将暴露给客户端的接口在这个AIDL文件中声明
  
 ```java
@@ -34,7 +35,7 @@ interface IBookManager{
     String getName();
 }
 ```
->系统会自动根据AIDL文件生成用于通信的java类。建议将AIDL文件及所有AIDL用到的类和文件放在同一个包中，这样做的好处是，当客户端在另一个工程时，我们可以直接整个包复制到客户端工程。
+> 系统会自动根据AIDL文件生成用于通信的java类。建议将AIDL文件及所有AIDL用到的类和文件放在同一个包中，这样做的好处是，当客户端在另一个工程时，我们可以直接整个包复制到客户端工程。
 
 * 编写Service，在Service实现AIDL接口
 
@@ -75,7 +76,7 @@ public class MyService extends Service {
 com.example.android.action.bookmanager
 ```
 
-#####**客户端**
+##### 客户端
 * 拷贝AIDL文件
 将AIDL文件及所有AIDL用到的类和文件拷贝到客户端工程中（如果服务端跟客户端没在一个工程的话），注意客户端AIDL的包结构必须和服务端保持一致。
 
@@ -126,7 +127,7 @@ public class MainActivity extends Activity {
 }
 ```
 
-#### **AIDL 源码解析**
+#### AIDL 源码解析
 上面简单介绍了一下AIDL在Service中的使用，接着就通过AIDL接口对应的java源码来分析一下AIDL是如何通过Binder实现进程间通信的。
 ```java
 //IBookManager.java
@@ -304,7 +305,7 @@ public interface IBookManager extends android.os.IInterface {
 ```
 小结：客户端绑定服务端后，服务端会返回一个Binder对象。客户端拿着这个Binder对象调用AIDL接口中的方法实际上是一次远程调用请求过程（RPC）。原理是这样的，当客户端用Binder调用AIDL接口中的方法时，实际上是调用Stub.Proxy类的的同名代理方法（其实在调用`Stub.asInterface()`时，就将服务端返回的Binder转换成了Stub.Proxy对象，Proxy对象也是一个实现了AIDAL接口的对象），该代理方法会调用`Binder.transact(Stub.TRANSACTION_methodName, _data, _reply, 0)`（Stub.TRANSACTION_methodName要调用的服务端AIDL接口中方法的标识，其实是就是与代理方法同名的那个方法，_data携带要发送给服务端的数据，_reply携带服务器返回给客户端的数据），发起一次远程调用请求，然后客户端挂起，此时服务端AIDL中的`onTransact(）`会被调用，在该方法中会调用到`Stub.TRANSACTION_methodName`标识的方法，并将_data传递该方法，将方法的返回结果写入_reply中，然后RPC过程返回，客户端代码继续往下执行，客户端读取_reply拿到返回结果。
 
-####**AIDL支持的参数类型**
+#### AIDL支持的参数类型
 在AIDL文件中，并不是支持所有的数据类型，只有某些数据类型才能使用。AIDL支持的数据类型有：
 
  - 基本数据类型（int、long、char、boolean、double等）
@@ -314,8 +315,7 @@ public interface IBookManager extends android.os.IInterface {
  - Parcelable：所有实现了Parcelable 的对象
  - AIDL：所有AIDL接口本身也可以在AIDL文件中使用
 
-
-####**AIDL文件定义注意事项**
+#### AIDL文件定义注意事项
 
  - Parcelable对象在AIDL中使用前必须新建一个和它同名的AIDL文件，并在其中声明该类为Parcelable类型。
  - 在AIDL中，使用自定义的Parcelable对象和AIDL接口必须显示import进来，不管他们是否和当前AIDL位于同一个包中。这是AIDL的规范。
@@ -323,8 +323,8 @@ public interface IBookManager extends android.os.IInterface {
  - AIDL中除基本数据类型外，其他类型的参数必须标上方向：in、out和inout。in表示输入型参数，out表示输出型参数，inout表示输入输出型参数。
 
 以下是书中提到的更多关于AIDL使用的内容，这里就不一一讲解了。
-####**使用AIDL在服务端注册与解注册监听器**
+#### 使用AIDL在服务端注册与解注册监听器
 
-####**远程服务断开重连**
+#### 远程服务断开重连
 
-####**使用AIDL做权限验证**
+#### 使用AIDL做权限验证
