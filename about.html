@@ -98,6 +98,7 @@ header-img: "img/about-me-bg.jpg"
 
 
 
+<!-- 多说评论 -->
 {% if site.duoshuo_username %}
 <!-- 多说评论框 start -->
 <div class="comment">
@@ -135,6 +136,7 @@ header-img: "img/about-me-bg.jpg"
 {% endif %}
 
 
+<!-- Disqus评论 -->
 {% if site.disqus_username %}
 <!-- disqus 评论框 start -->
 <div class="comment">
@@ -160,7 +162,10 @@ header-img: "img/about-me-bg.jpg"
 <!-- disqus 公共JS代码 end -->
 {% endif %}
 
+
+<!-- 友言评论 -->
 {% if site.uyan_username %}
+<!-- 本地测试可以显示，上到github pages就不能显示了 -->
     <!-- 友言评论框 BEGIN -->
     <div class="comment">
         <div id="uyan_frame">

@@ -3,7 +3,7 @@ layout:     post
 title:      Freeline加快Android Studio编译速度
 subtitle:   
 date:       2016-11-23
-author:     XiaoZhuiwang Wang
+author:     XiaoZhui Wang
 header-img: img/post-bg-2.jpg
 catalog: true
 tags:
@@ -55,6 +55,7 @@ freeline {
 配置项具体可以看[Freeline DSL References](https://github.com/alibaba/freeline/wiki/Freeline-DSL-References)。
 
 #### 二.执行编译
+
 ##### 方法一：通过Android Studio插件Freeline来编译
 
 在Android Studio中，通过以下路径Preferences → Plugins → Browse repositories，搜索“freeline”，并安装。

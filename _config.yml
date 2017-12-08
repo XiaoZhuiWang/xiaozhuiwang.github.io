@@ -56,7 +56,7 @@ input: GFM                            # use Github Flavored Markdown !important
 
 # 评论系统
 # Disqus settings（https://disqus.com/）
-# disqus_username: qiubaiying
+disqus_username: xiaozhuiwang
 
 # 多说 将于2017年6月1日正式关停服务，建议使用 Disqus（http://dev.duoshuo.com/threads/58d1169ae293b89a20c57241）
 # Duoshuo settings
@@ -65,7 +65,7 @@ input: GFM                            # use Github Flavored Markdown !important
 # duoshuo_share: true                     # set to false if you want to use Comment without Sharing
 
 #UYan评论
-uyan_username: 2151341  #可以不配置
+# uyan_username: 2151341  
 
 
 # Analytics settings
