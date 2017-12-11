@@ -22,7 +22,7 @@ Binder主要用于进程间通信，是Android中的一个类，实现了IBinder
 
 ### AIDL在Service中的使用方法
 
-##### 服务端
+#### 服务端
 * 定义AIDL接口，将暴露给客户端的接口在这个AIDL文件中声明
  
 ```java
@@ -76,7 +76,7 @@ public class MyService extends Service {
 com.example.android.action.bookmanager
 ```
 
-##### 客户端
+#### 客户端
 * 拷贝AIDL文件
 将AIDL文件及所有AIDL用到的类和文件拷贝到客户端工程中（如果服务端跟客户端没在一个工程的话），注意客户端AIDL的包结构必须和服务端保持一致。
 

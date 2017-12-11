@@ -18,7 +18,7 @@ header-img: "img/about-me-bg.jpg"
 <!--     <blockquote><p>冰冻三尺 非一日之寒，<br>
     积土成山 非斯须之作</p></blockquote> -->
 
-    <p>Hey，我是<strong>王小追</strong>，Android程序猿一只，现在在深圳工作。</p>
+    <p>嗨，我是<strong>王小追</strong>，Android程序猿一只，现在在深圳工作。</p>
 
   <!--   <p>这是我的利用 <a href="https://pages.github.com/">GitHub Pages</a> 与 <a href="http://jekyll.com.cn/">Jekyll</a> 搭建的 个人博客。我在GitHub主页<a href="https://github.com/qiubaiying">👉GitHub·BY</a> 与 简书主页<a href="https://http://www.jianshu.com/u/e71990ada2fd">👉BY</a>。</p>
 
@@ -96,46 +96,6 @@ header-img: "img/about-me-bg.jpg"
     _render();
 </script>
 
-
-
-<!-- 多说评论 -->
-{% if site.duoshuo_username %}
-<!-- 多说评论框 start -->
-<div class="comment">
-    <!-- This id is used for indexing my loss comments forcedly -->
-    <div class="ds-thread"
-    {% if site.duoshuo_username == "qiubaiying" %}
-        data-thread-id="0ee040117ec56f17aa7e2523d1eae19b"
-    {% else %}
-    <!-- U can just use this key generated to index comments at page about -->
-        data-thread-key="{{site.duoshuo_username}}/about"
-    {% endif %}
-
-    data-title="{{page.title}}"
-    data-url="{{site.url}}/about/"></div>
-</div>
-<!-- 多说评论框 end -->
-
-<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
-<script type="text/javascript">
-    // dynamic User hacking by Hux
-    var _user = '{{site.duoshuo_username}}';
-
-    // duoshuo comment query.
-    var duoshuoQuery = {short_name: _user };
-    (function() {
-        var ds = document.createElement('script');
-        ds.type = 'text/javascript';ds.async = true;
-        ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
-        ds.charset = 'UTF-8';
-        (document.getElementsByTagName('head')[0]
-         || document.getElementsByTagName('body')[0]).appendChild(ds);
-    })();
-</script>
-<!-- 多说公共JS代码 end -->
-{% endif %}
-
-
 <!-- Disqus评论 -->
 {% if site.disqus_username %}
 <!-- disqus 评论框 start -->
@@ -160,18 +120,4 @@ header-img: "img/about-me-bg.jpg"
     })();
 </script>
 <!-- disqus 公共JS代码 end -->
-{% endif %}
-
-
-<!-- 友言评论 -->
-{% if site.uyan_username %}
-<!-- 本地测试可以显示，上到github pages就不能显示了 -->
-    <!-- 友言评论框 BEGIN -->
-    <div class="comment">
-        <div id="uyan_frame">
-            
-        </div>
-    </div>
-    <script type="text/javascript" src="http://v2.uyan.cc/code/uyan.js?uid=2151341"></script>
-    <!-- 友言评论框END -->
 {% endif %}
