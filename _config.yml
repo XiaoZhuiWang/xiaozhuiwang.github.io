@@ -1,10 +1,10 @@
 # Site settings
-title:  XiaoZhui Blog
-SEOTitle: 王小追的博客 | XiaoZhuiWang Blog
+title:  磐林
+SEOTitle: 磐林的博客 | PanLin's Blog
 header-img: img/home-bg-life.jpg
 email: w410626290@gmail.com
 description: "Self-discipline, Concentration, Advance gradually, Persistence."
-keyword: "XiaoZhuiWang, XiaoZhuiWang Blog, 王小追的博客, 王小追, Android, Adnroid开发"
+keyword: "磐林, PanLin's Blog, 磐林的博客 , Android, Adnroid开发"
 url: "https://xiaozhuiwang.github.io"          # your host, for absolute URL
 baseurl: ""      # for example, '/blog' if your blog hosted on 'host/blog'
 #github_repo: "https://github.com/qiubaiying/qiubaiying.github.io.git" # you code repository
